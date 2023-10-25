@@ -96,9 +96,6 @@ Nguyen tac:
 
 
 /* Main */
-#main {
-    
-}
 
 #header {
     position: fixed;
@@ -199,7 +196,7 @@ Nguyen tac:
     position: relative;
     margin-top: 46px;
     padding-top: 50%; /* Kich thuoc ty le theo chieu ngang (rong) cua chinh no */
-    background: url("/assets/img/slider/slider1.jpg") top center / cover no-repeat;
+    background: url("../img/slider/slider1.jpg") top center / cover no-repeat;
 }
 
 #slider .img-text {
@@ -221,11 +218,6 @@ Nguyen tac:
     font-size: 15px;
     margin-top: 25px;
     text-shadow: 0 0 4px #000;
-}
-
-
-#content {
-
 }
 
 #content .content-section {

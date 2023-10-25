@@ -239,17 +239,28 @@
         // Script to show and hide menu in mobile size
         const header = document.getElementById("header")
         const menuBtn = document.getElementsByClassName("mobile-menu-btn")
+        const navListHeight = document.getElementById("nav").clientHeight
+        const subNav = document.querySelector(".sub-nav")
+        subNavHeight = subNav.clientHeight;
+        console.log(subNavHeight)   
         let headerHeight = header.clientHeight
 
         // Show/hide menu
         menuBtn[0].onclick = function() {
             let isClose = header.clientHeight === headerHeight
             if (isClose) {
-                header.style.height = "auto"
+                header.style.height = navListHeight + "px";
             } else {
                 header.style.height = null
             }
         }
+        // hide menu when clicked outside
+        window.onclick = function(event) {
+            if (!header.contains(event.target)) {
+                header.style.height = null
+            }
+        }
+        
 
         // Auto close when pick an element in menu
         const menuItems = document.querySelectorAll("#nav li a[href*='#']")
@@ -260,6 +271,8 @@
             menuItem.onclick = function(event) {
                 let isParentMenu = this.nextElementSibling && this.nextElementSibling.classList.contains('sub-nav')
                 if (isParentMenu) {
+                    subNav.style.display = 'block'
+                    header.style.height = (navListHeight + subNav.clientHeight) + 'px'
                     event.preventDefault()
                 } else {
                     header.style.height = null

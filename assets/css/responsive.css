@@ -50,6 +50,7 @@
 
     #header {
         overflow: hidden;
+        transition: all 0.2s linear;
     }
 
     #header .search-btn {
